@@ -9,6 +9,7 @@ CC = cc
 SRCS = push_swap.c \
 		push_swap_moves.c \
 		push_swap_sort.c \
+		push_swap_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 

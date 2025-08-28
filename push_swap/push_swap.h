@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:43 by djareno           #+#    #+#             */
-/*   Updated: 2025/08/27 13:38:03 by djareno          ###   ########.fr       */
+/*   Updated: 2025/08/28 12:11:25 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void    rra(t_list **stackA);
 void    rrb(t_list **stackB);
 void    rrr(t_list **stackA, t_list **stackB);
 void    divide_stacks(t_list **stackA, t_list **stackB);
+int     sortedStack(t_list **stack);
 #endif
