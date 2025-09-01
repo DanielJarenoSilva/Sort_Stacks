@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:40 by djareno           #+#    #+#             */
-/*   Updated: 2025/08/28 15:08:07 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/01 12:28:42 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,15 @@ int	main(int argc, char *argv[])
 	else if (argc == 2)
 	{
 		if (str_to_stack(&stackA, argv[1]) == -1)
-			return (ft_putstr_fd("Error\n", 2), 0);
+		{
+			ft_putstr_fd("Error1\n", 2);
+			return (0);
+		}
 	}
 	else if (argc > 2)
 	{
 		if (arr_to_stack(&stackA, argv) == -1)
-			return (ft_putstr_fd("Error\n", 2), 0);
+			return (ft_putstr_fd("Error2\n", 2), 0);
 	}
 	/*ft_printf("%s\n", "StackA");
 	ft_lstprintd(stackA);
