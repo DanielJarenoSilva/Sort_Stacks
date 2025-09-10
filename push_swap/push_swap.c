@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:40 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/01 12:28:42 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/10 10:52:04 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ int	main(int argc, char *argv[])
 	}
 	/*ft_printf("%s\n", "StackA");
 	ft_lstprintd(stackA);
-	ft_printf("%s\n", "StackB");
-	ft_lstprintd(stackB);*/
-	divide_stacks(&stackA, &stackB);
+	ft_printf("%s\n", "StackB");*/
+	ft_lstprintd(stackB);
+	ksort(&stackA, &stackB);
 	/*ft_printf("%s\n", "StackA");
 	ft_lstprintd(stackA);
 	ft_printf("%s\n", "StackB");

@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:55:55 by djareno           #+#    #+#             */
-/*   Updated: 2025/08/28 14:56:57 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/10 10:53:16 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,20 @@ int sortedStack(t_list **stack)
 			break;
     }
     return (0);
+}
+
+int get_max(t_list **stack)
+{
+	int		max;
+	t_list	*t_temp;
+
+	max = 0;
+	t_temp = *stack;
+	while (t_temp)
+	{
+		if (*(int *)t_temp->content > max)
+			max = *(int *)t_temp->content;
+		t_temp = t_temp->next;
+	}
+	return (max);
 }
