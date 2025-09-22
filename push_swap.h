@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:43 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 14:50:20 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/22 16:16:59 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	rr(t_list **stackA, t_list **stackB);
 void	rra(t_list **stackA);
 void	rrb(t_list **stackB);
 void	rrr(t_list **stackA, t_list **stackB);
+void	free_stacks(t_list **stack);
 int		get_max(t_list **stack);
 void	ksort(t_list **stackA, t_list **stackB);
 int		sortedstack(t_list **stack);

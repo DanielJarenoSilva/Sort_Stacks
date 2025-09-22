@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:55:55 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 14:49:19 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/22 16:17:11 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,17 @@ int	ft_atoi_ps(const char *n)
 	if (num >= 2147483647 || num <= -2147483648)
 		ft_putstr_fd("Error\n", 2);
 	return (num * signo);
+}
+
+void	free_stacks(t_list **stack)
+{
+	t_list	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free((*stack)->content);
+		free(*stack);
+		*stack = tmp;
+	}
 }

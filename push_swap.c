@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:40 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 16:07:12 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/22 16:24:48 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,11 @@ int	strsize(char *str)
 	return (arrlen(strs));
 }
 
-void	free_stacks(t_list **stack)
+int	checkargs(t_list *stacka, t_list *stackb, int argc, char *argv[])
 {
-	t_list	*tmp;
-
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free((*stack)->content);
-		free(*stack);
-		*stack = tmp;
-	}
-}
-
-int	main(int argc, char *argv[])
-{
-	t_list	*stacka;
-	t_list	*stackb;
-	int		*stackint;
 	int		size;
+	int		*stackint;
 
-	stacka = NULL;
-	stackb = NULL;
 	stackint = NULL;
 	size = 0;
 	if (argc <= 1)
@@ -87,8 +70,18 @@ int	main(int argc, char *argv[])
 	}
 	stacka = to_stack(stacka, stackint, size);
 	sort(&stacka, &stackb);
-	free_stacks(&stacka);
 	free(stackint);
+	return (0);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_list	*stacka;
+	t_list	*stackb;
+
+	stacka = NULL;
+	stackb = NULL;
+	checkargs(stacka, stackb, argc, argv);
+	free_stacks(&stacka);
 	free_stacks(&stackb);
-	
 }
