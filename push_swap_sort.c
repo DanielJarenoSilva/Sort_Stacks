@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 10:53:05 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/10 16:11:35 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/22 14:45:36 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,64 +30,68 @@ int	find_num_stack(t_list **stack, int num)
 			return (i);
 	}
 	return (i);
-	
 }
 
-void	ksort(t_list **stackA, t_list **stackB)
+void	sort3(t_list **stackA)
 {
-	int	max;
-	int	chunk;
-	int	chunks;
-	int p_chunk;
-	int	i;
-	int	y;
-
-	i = 1;
-	y = 0;
-	p_chunk = 0;
-	max = get_max(stackA);
-	chunks = ft_sqrt(max + 1);
-	while (*stackA)
+	if ((*stackA)->index == 2)
 	{
-		chunk = (max + 1) * i / chunks;
-		if ((*stackA)->index <= chunk)
+		ra(stackA);
+	}
+	else if ((*stackA)->next->index == 2)
+	{
+		rra(stackA);
+	}
+	if ((*stackA)->index > (*stackA)->next->index)
+	{
+		sa(*stackA);
+	}
+}
+
+void	sort5(t_list **stackA, t_list **stackB)
+{
+	int	i;
+
+	i = 0;
+	while (i < 2)
+	{
+		if ((*stackA)->index == 0 || (*stackA)->index == 1)
 		{
-			y++;
-			if ((*stackA)->index < ((chunk + p_chunk) / 2))
-				pb(stackA, stackB);
-			else
-			{
-				pb(stackA,stackB);
-				rb(stackB);
-			}			
+			pb(stackA, stackB);
+			i++;
 		}
 		else
 			ra(stackA);
-		if (y == chunk)
-		{
-			p_chunk = chunk;
-			i++;
-		}
+	}
+	sort3(stackA);
+	pa(stackA, stackB);
+	pa(stackA, stackB);
+	if ((*stackA)->index > (*stackA)->next->index)
+		sa(*stackA);
+}
 
-	}
-	i = max;
-	while (*stackB)
+void	sort(t_list **stackA, t_list **stackB)
+{
+	int	max;
+
+	max = get_max(stackA);
+	if (max == 1)
 	{
-		y = find_num_stack(stackB, i);
-		if (y < get_max(stackB) / 2)
-		{
-			while ((*stackB)->index != i)
-				rb(stackB);
-			pa(stackA, stackB);
-			i--;
-		}
-		else if (y >= get_max(stackB) / 2)
-		{
-			while ((*stackB)->index != i)
-				rrb(stackB);
-			pa(stackA, stackB);
-			i--;
-		}
-		
+		if ((*stackA)->index > (*stackA)->next->index)
+			sa(*stackA);
 	}
+	else if (max == 2)
+	{
+		sort3(stackA);
+	}
+	else if (max == 0)
+	{
+		return ;
+	}
+	else if (max == 4)
+	{
+		sort5(stackA, stackB);
+	}
+	else
+		ksort(stackA, stackB);
 }

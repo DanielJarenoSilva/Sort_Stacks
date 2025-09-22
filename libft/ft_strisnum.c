@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 12:18:37 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/11 11:12:17 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/22 11:47:43 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	ft_strisnum(char *str)
 	x = 0;
 	while (str[x])
 	{
-		if (str[x] < 48 || str[x] > 57)
+		if (str[0] == 45 || (str[x] >= 48 && str[x] <= 57))
+			x++;
+		else
 			return (-1);
-		x++;
 	}
 	return (0);
 }
