@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_ksort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 14:44:33 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 14:46:59 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/23 10:23:28 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,26 @@ void	ksort(t_list **a, t_list **b)
 	max = get_max(a);
 	push_chunks(a, b, max, ft_sqrt(max + 1));
 	rebuild_stack(a, b, max);
+}
+
+int	check_num_repeated(int *nums, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j< size)
+		{
+			if (nums[i] == nums[j])
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

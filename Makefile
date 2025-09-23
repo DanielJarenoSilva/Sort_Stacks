@@ -12,6 +12,8 @@ SRCS = push_swap.c \
 		push_swap_utils.c \
 		push_swap_main_utils.c \
 		push_swap_ksort.c \
+		push_swap_moves_a.c \
+		push_swap_moves_b.c \
 
 OBJS = $(SRCS:.c=.o)
 

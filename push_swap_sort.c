@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 10:53:05 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 14:45:36 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/23 11:22:38 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,66 +32,81 @@ int	find_num_stack(t_list **stack, int num)
 	return (i);
 }
 
-void	sort3(t_list **stackA)
+void	sort3(t_list **stacka)
 {
-	if ((*stackA)->index == 2)
+	if ((*stacka)->index == 2)
 	{
-		ra(stackA);
+		ra(stacka);
 	}
-	else if ((*stackA)->next->index == 2)
+	else if ((*stacka)->next->index == 2)
 	{
-		rra(stackA);
+		rra(stacka);
 	}
-	if ((*stackA)->index > (*stackA)->next->index)
+	if ((*stacka)->index > (*stacka)->next->index)
 	{
-		sa(*stackA);
+		sa(*stacka);
 	}
 }
 
-void	sort5(t_list **stackA, t_list **stackB)
+void	sort4(t_list **stacka, t_list **stackb)
+{
+	int	i;
+
+	i = 0;
+	while (i < 1)
+	{
+		if ((*stacka)->index == 0)
+		{
+			pb(stacka, stackb);
+			i++;
+		}
+		else
+			ra(stacka);
+	}
+	sort3(stacka);
+	pa(stacka, stackb);
+}
+
+void	sort5(t_list **stacka, t_list **stackb)
 {
 	int	i;
 
 	i = 0;
 	while (i < 2)
 	{
-		if ((*stackA)->index == 0 || (*stackA)->index == 1)
+		if ((*stacka)->index == 0 || (*stacka)->index == 1)
 		{
-			pb(stackA, stackB);
+			pb(stacka, stackb);
 			i++;
 		}
 		else
-			ra(stackA);
+			ra(stacka);
 	}
-	sort3(stackA);
-	pa(stackA, stackB);
-	pa(stackA, stackB);
-	if ((*stackA)->index > (*stackA)->next->index)
-		sa(*stackA);
+	sort3(stacka);
+	pa(stacka, stackb);
+	pa(stacka, stackb);
+	if ((*stacka)->index > (*stacka)->next->index)
+		sa(*stacka);
 }
 
-void	sort(t_list **stackA, t_list **stackB)
+void	sort(t_list **stacka, t_list **stackb)
 {
 	int	max;
 
-	max = get_max(stackA);
+	max = get_max(stacka);
 	if (max == 1)
 	{
-		if ((*stackA)->index > (*stackA)->next->index)
-			sa(*stackA);
+		if ((*stacka)->index > (*stacka)->next->index)
+			sa(*stacka);
 	}
 	else if (max == 2)
-	{
-		sort3(stackA);
-	}
+		sort3(stacka);
 	else if (max == 0)
-	{
 		return ;
-	}
 	else if (max == 4)
-	{
-		sort5(stackA, stackB);
-	}
+		sort5(stacka, stackb);
+	else if (max == 3)
+		sort4(stacka, stackb);
 	else
-		ksort(stackA, stackB);
+		ksort(stacka, stackb);
 }

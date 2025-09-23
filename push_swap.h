@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:43 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 16:16:59 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/23 10:13:24 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ int		*copy_arr(int *arr, int size);
 void	sort_arr(int *nums, int size);
 void	ksort(t_list **a, t_list **b);
 int		find_num_stack(t_list **stack, int num);
+int		check_num_repeated(int *nums, int size);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:40 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 16:24:48 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/23 10:20:26 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	checkargs(t_list *stacka, t_list *stackb, int argc, char *argv[])
 			return (ft_putstr_fd("Error\n", 2), 0);
 	}
 	stacka = to_stack(stacka, stackint, size);
+	if (check_num_repeated(stackint, size) == 1)
+		return (ft_putstr_fd("Error\n", 2), 0);
 	sort(&stacka, &stackb);
 	free(stackint);
 	return (0);
