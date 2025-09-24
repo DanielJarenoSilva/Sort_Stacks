@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_moves_a.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:07:20 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/23 11:09:14 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 09:52:53 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sa(t_list *stackA)
+void	sa(t_list *stackA)
 {
 	int		*temp;
 	int		*temp2;
-    t_list	*t_temp;
+	t_list	*t_temp;
 
 	temp = stackA->content;
 	t_temp = stackA;
@@ -32,7 +32,7 @@ void	pa(t_list **stackA, t_list **stackB)
 {
 	t_list	*t_temp;
 
-	if(!stackB || !*stackB)
+	if (!stackB || !*stackB)
 		return ;
 	t_temp = *stackB;
 	*stackB = (*stackB)->next;
@@ -51,7 +51,7 @@ void	ra(t_list **stackA)
 	ft_printf("%s\n", "ra");
 }
 
-void rra(t_list **stackA)
+void	rra(t_list **stackA)
 {
 	t_list	*prev;
 	t_list	*last;

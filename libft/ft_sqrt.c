@@ -6,11 +6,11 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:04:25 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/10 13:49:56 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 09:49:05 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int	num)
+int	ft_sqrt(int num)
 {
 	int	i;
 

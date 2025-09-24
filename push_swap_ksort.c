@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_ksort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 14:44:33 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/23 10:23:28 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 09:53:45 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	check_num_repeated(int *nums, int size)
 	while (i < size)
 	{
 		j = i + 1;
-		while (j< size)
+		while (j < size)
 		{
 			if (nums[i] == nums[j])
 			{

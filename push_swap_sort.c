@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 10:53:05 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/23 11:22:38 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 10:14:53 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	sort(t_list **stacka, t_list **stackb)
 	int	max;
 
 	max = get_max(stacka);
+	if (check_sorted_stack(*stacka) == 1)
+		return ;
 	if (max == 1)
 	{
 		if ((*stacka)->index > (*stacka)->next->index)

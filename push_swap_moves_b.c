@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_moves_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:05:08 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/23 11:06:43 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 09:51:59 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sb(t_list *stackB)
+void	sb(t_list *stackB)
 {
 	int		*temp;
 	int		*temp2;
-    t_list	*t_temp;
+	t_list	*t_temp;
 
 	temp = stackB->content;
 	t_temp = stackB;
@@ -32,7 +32,7 @@ void	pb(t_list **stackA, t_list **stackB)
 {
 	t_list	*t_temp;
 
-	if(!stackA || !*stackA)
+	if (!stackA || !*stackA)
 		return ;
 	t_temp = *stackA;
 	*stackA = (*stackA)->next;

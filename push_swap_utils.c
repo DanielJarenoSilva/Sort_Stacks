@@ -6,7 +6,7 @@
 /*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:55:55 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/22 16:17:11 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 10:15:32 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,18 @@ int	ft_atoi_ps(const char *n)
 	return (num * signo);
 }
 
-void	free_stacks(t_list **stack)
+int	check_sorted_stack(t_list *stack)
 {
-	t_list	*tmp;
+	t_list	*temp;
 
-	while (*stack)
+	temp = stack;
+	while (temp->next->next)
 	{
-		tmp = (*stack)->next;
-		free((*stack)->content);
-		free(*stack);
-		*stack = tmp;
+		if (temp->index > temp->next->index)
+		{
+			return (0);
+		}
+		temp = temp->next;
 	}
+	return (1);
 }

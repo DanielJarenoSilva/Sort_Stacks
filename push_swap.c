@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djareno <djareno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djareno <djareno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:29:40 by djareno           #+#    #+#             */
-/*   Updated: 2025/09/23 10:20:26 by djareno          ###   ########.fr       */
+/*   Updated: 2025/09/24 10:10:18 by djareno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stacks(t_list **stack)
+{
+	t_list	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free((*stack)->content);
+		free(*stack);
+		*stack = tmp;
+	}
+}
 
 t_list	*to_stack(t_list *stack, int *nums, int size)
 {
@@ -45,7 +58,7 @@ int	strsize(char *str)
 	return (arrlen(strs));
 }
 
-int	checkargs(t_list *stacka, t_list *stackb, int argc, char *argv[])
+int	checkargs(t_list **stacka, t_list **stackb, int argc, char *argv[])
 {
 	int		size;
 	int		*stackint;
@@ -68,12 +81,10 @@ int	checkargs(t_list *stacka, t_list *stackb, int argc, char *argv[])
 		if (stackint == NULL)
 			return (ft_putstr_fd("Error\n", 2), 0);
 	}
-	stacka = to_stack(stacka, stackint, size);
+	*stacka = to_stack(*stacka, stackint, size);
 	if (check_num_repeated(stackint, size) == 1)
 		return (ft_putstr_fd("Error\n", 2), 0);
-	sort(&stacka, &stackb);
-	free(stackint);
-	return (0);
+	return (free(stackint), sort(stacka, stackb), 0);
 }
 
 int	main(int argc, char *argv[])
@@ -83,7 +94,7 @@ int	main(int argc, char *argv[])
 
 	stacka = NULL;
 	stackb = NULL;
-	checkargs(stacka, stackb, argc, argv);
+	checkargs(&stacka, &stackb, argc, argv);
 	free_stacks(&stacka);
 	free_stacks(&stackb);
 }
